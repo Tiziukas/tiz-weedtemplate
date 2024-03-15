@@ -1,6 +1,6 @@
 local ox_target = exports.ox_target
-local StartJobLocation = vec3(-14.2849, 6485.2510, 31.4974)
-local JobStartLocationa = lib.points.new(StartJobLocation, 20.0)
+local StartJobLocation = Config.StartJobLocation
+local JobStartLocationa = lib.points.new(StartJobLocation, Config.StartJobRadius)
 
 
 function createDarbas()
@@ -8,7 +8,7 @@ function createDarbas()
         {
             name = 'Kirpti',
             icon = 'fa-solid fa-scissors',
-            label = 'Nukirpti Buda',
+            label = Config.Language.cutbud,
             onSelect = function()
                 local zirklesturi = lib.callback('tizo:turizirkles', false)
                 if zirklesturi then
@@ -35,8 +35,8 @@ function createDarbas()
                     TriggerServerEvent('tizo:finalas', item)
                 else
                     lib.notify({
-                        title = 'Darbas',
-                        description = 'Neturi zirkliu!',
+                        title = Config.Language.notifytitle,
+                        description = Config.Language.noitem,
                         position = 'top',
                         style = {
                             backgroundColor = '#141517',
@@ -59,7 +59,7 @@ function createDarbasStalas()
         {
             name = 'Sukti',
             icon = 'fa-solid fa-joint',
-            label = 'Sukti Kaseka',
+            label = Config.Language.rolljoint,
             onSelect = function()
                 lib.progressCircle({
                     duration = 10000,
